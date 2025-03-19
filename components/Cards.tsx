@@ -24,7 +24,12 @@ export const FeaturedCard = ({ item, onPress }: Props) => {
       <View className="flex flex-row items-center bg-white/90 px-3 py-1.5 rounded-full absolute top-5 right-5">
         <Image source={icons.star} className="size-3.5" />
         <Text className="text-xs font-rubik-bold text-primary-300 ml-1">
-          {item.rating}
+          {item.reviews.length > 0
+            ? item.reviews.reduce(
+                (acc: number, curr: any) => acc + curr.rating,
+                0
+              ) / item.reviews.length
+            : 0}
         </Text>
       </View>
 
@@ -59,7 +64,14 @@ export const Card = ({ item, onPress }: Props) => {
       <View className="flex flex-row items-center absolute px-2 top-5 right-5 bg-white/90 p-1 rounded-full z-50">
         <Image source={icons.star} className="size-2.5" />
         <Text className="text-xs font-rubik-bold text-primary-300 ml-0.5">
-          {item.rating}
+          {item.reviews.length > 0
+            ? Number(
+                item.reviews.reduce(
+                  (acc: number, curr: any) => acc + curr.rating,
+                  0
+                ) / item.reviews.length
+              ).toFixed(2)
+            : 0}
         </Text>
       </View>
 
