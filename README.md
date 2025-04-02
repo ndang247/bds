@@ -1,4 +1,4 @@
-# Just A Real Estate React Native App 🏠
+# Just a real estate React Native app 🏠
 
 # Welcome to your Expo app 👋
 
